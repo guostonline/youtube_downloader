@@ -39,7 +39,7 @@ def convert_to_mp3(input_path, output_path, start, end):
 
 
 if __name__ == "__main__":
-
+    st.session_state["test"]="allo"
     mp4_output = "mp4_output/"
     mp4_path=""
     video_filename = ""
@@ -47,10 +47,11 @@ if __name__ == "__main__":
     duration = 0
 
     st.title("Youtube Downloader")
-
+    st.text(st.session_state["test"])
     video_url = st_keyup("Youtube url")
     # show info about video
     if video_url:
+        st.session_state["test"]="waw"
         yt = YouTube(video_url)
         duration = yt.length
         duration = str(datetime.timedelta(seconds=duration))
@@ -67,6 +68,7 @@ if __name__ == "__main__":
 
     if download_button:
         with st.spinner('Wait for download...'):
+            st.session_state["test"] = "waw"
             video_filename = download_youtube_video(video_url, mp4_output)
             mp4_path = mp4_output + video_filename
             mp3_path = mp4_path.replace(".mp4", ".mp3")
