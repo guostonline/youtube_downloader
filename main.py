@@ -8,7 +8,6 @@ from moviepy.editor import *
 from pytube import YouTube
 
 
-
 def download_youtube_video(url, output_path):
     try:
         yt = YouTube(url)
@@ -29,7 +28,7 @@ def convert_to_mp3(input_path, output_path, start, end):
     try:
 
         video_clip = AudioFileClip(input_path)
-        new_video = video_clip.subclip(start,end)
+        new_video = video_clip.subclip(start, end)
         new_video.write_audiofile(output_path, )
         new_video.close()
         print('Converted')
@@ -39,19 +38,19 @@ def convert_to_mp3(input_path, output_path, start, end):
 
 
 if __name__ == "__main__":
-    st.session_state["test"]="allo"
+    st.session_state["test"] = "allo"
     mp4_output = "mp4_output/"
-    mp4_path=""
+    mp4_path = ""
     video_filename = ""
 
     duration = 0
 
     st.title("Youtube Downloader")
-    st.text(st.session_state["test"])
+
     video_url = st_keyup("Youtube url")
     # show info about video
     if video_url:
-        st.session_state["test"]="waw"
+        st.session_state["test"] = "waw"
         yt = YouTube(video_url)
         duration = yt.length
         duration = str(datetime.timedelta(seconds=duration))
@@ -64,6 +63,7 @@ if __name__ == "__main__":
         star_second = st.text_input("Start", value="0:0:0", help="start in second")
     with col2:
         end_second = st.text_input("End", value=duration, help="end in second")
+
     download_button = st.button("Download now")
 
     if download_button:
@@ -80,5 +80,5 @@ if __name__ == "__main__":
                 btn = st.download_button(
                     label="Download file",
                     data=f,
-                    file_name=video_filename.replace("mp4","mp3"),
+                    file_name=video_filename.replace("mp4", "mp3"),
                     mime="sound/img")
