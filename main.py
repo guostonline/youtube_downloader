@@ -38,7 +38,8 @@ def convert_to_mp3(input_path, output_path, start, end):
 
 
 if __name__ == "__main__":
-    st.session_state["test"] = "allo"
+
+    st.session_state["test"] = " allo"
     mp4_output = "mp4_output/"
     mp4_path = ""
     video_filename = ""
@@ -68,7 +69,6 @@ if __name__ == "__main__":
 
     if download_button:
         with st.spinner('Wait for download...'):
-            st.session_state["test"] = "waw"
             video_filename = download_youtube_video(video_url, mp4_output)
             mp4_path = mp4_output + video_filename
             mp3_path = mp4_path.replace(".mp4", ".mp3")
