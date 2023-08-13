@@ -39,7 +39,6 @@ def convert_to_mp3(input_path, output_path, start, end):
 
 if __name__ == "__main__":
 
-    st.session_state["test"] = " allo"
     mp4_output = "mp4_output/"
     mp4_path = ""
     video_filename = ""
