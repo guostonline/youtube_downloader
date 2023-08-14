@@ -60,7 +60,7 @@ if __name__ == "__main__":
     col1, col2 = st.columns(2)
 
     with col1:
-        star_second = st.text_input("Start", value="0:0:0", help="start in second")
+        star_second = st.text_input("Start", value="0:0:0.0", help="start in second")
     with col2:
         end_second = st.text_input("End", value=duration, help="end in second")
 
